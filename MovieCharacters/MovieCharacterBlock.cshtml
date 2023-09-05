@@ -1,0 +1,31 @@
+﻿@using Features.MovieCharacters.Models;
+@model MovieCharacterBlock
+
+@if (Model is null)
+{
+    return;
+}
+
+<div class="some-class">
+    <dl>
+        <dt>@Model.CharacterName</dt>
+        <dd>@Model.DateOfBirth</dd>
+
+        <dd>
+            @if (Model?.AlternateNames?.Any() ?? false)
+            {
+                <ul>
+                    @foreach (var alternateName in Model.AlternateNames)
+                    {
+                        <li>@alternateName</li>
+                    }
+                </ul>
+            }
+        </dd>
+        <dd>@Model!.Species</dd>
+        <dd>@Model.Gender</dd>
+        <dd>@Model.House</dd>
+        <dd>@Model.Ancestry</dd>
+        <dd>@Model.Actor</dd>
+    </dl>
+</div>
